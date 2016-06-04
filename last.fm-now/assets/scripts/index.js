@@ -1,8 +1,17 @@
 (function(){
-	var username = window.location.hash.substr(1)
+	function getUsername() {
+		return username = window.location.hash.substr(1)
+	}
+
+
+	var username = getUsername()
 	if (!username) {
 		username = 'Ofecka_'
 	}
+	window.addEventListener('hashchange', getUsername);
+
+
+	var loading = document.getElementById('loading')
 
 	var track = document.getElementById('track')
 	var trackPrevious
@@ -29,6 +38,8 @@
 	function show(title, artist, album, cover) {
 		if (trackPrevious) {
 			trackPrevious.remove()
+		} else {
+			loading.classList.add('view-done')
 		}
 		trackPrevious = trackCurrent
 		trackCurrent = trackPrevious.cloneNode(true)
@@ -50,7 +61,7 @@
 	}
 
 	function getRecentUrl(username) {
-		return 'http://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user='+username+'&limit=1&api_key=4bf2f3f683673b6f60730f65cf30cb28&format=json'
+		return 'https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user='+username+'&limit=1&api_key=4bf2f3f683673b6f60730f65cf30cb28&format=json'
 	}
 
 	function getBySize(data, size, attr) {
@@ -77,6 +88,12 @@
 					icon: cover
 				}
 			)
+			n.addEventListener('click', function(n){
+				return function(){
+					window.focus()
+					n.close()
+				}
+			}(n))
 			setTimeout(function(n){
 				return function(){ n.close() }
 			}(n), 3000)
