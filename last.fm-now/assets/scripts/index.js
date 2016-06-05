@@ -96,7 +96,7 @@
 			}(n))
 			setTimeout(function(n){
 				return function(){ n.close() }
-			}(n), 3000)
+			}(n), 7000)
 		}
 	}
 
@@ -104,7 +104,7 @@
 		fetch(getRecentUrl(username)).then(function(response){
 			return response.json()
 		}).then(function(data){
-			if (data.recenttracks.track.length == 0) {
+			if (!data.recenttracks || data.recenttracks.track.length == 0) {
 				throw new Error('No tracks')
 			}
 			var track = data.recenttracks.track[0]
