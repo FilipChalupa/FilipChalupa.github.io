@@ -1,0 +1,1 @@
+{"version":3,"sources":["styles/print.styl","styles/print.css"],"names":[],"mappings":"AAIA;;EACC,cAAA;EACA,gBAAA;CCFA","file":"styles/print.css","sourcesContent":["//\r\n// Print styles - yep, we forget about them every time\r\n//\r\n\r\npicture, img\r\n\tdisplay none\r\n\tmax-width 100%\r\n","picture,\nimg {\n  display: none;\n  max-width: 100%;\n}\n"],"sourceRoot":"/source/"}
