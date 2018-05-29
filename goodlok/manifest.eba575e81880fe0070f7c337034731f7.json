@@ -1,0 +1,46 @@
+{
+  "icons": [
+    {
+      "src": "/goodlok/icon_512x512.5f41064ea68b42676e896105f0abbf68.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "/goodlok/icon_384x384.b92c4e39e9f8f075042839e44314552b.png",
+      "sizes": "384x384",
+      "type": "image/png"
+    },
+    {
+      "src": "/goodlok/icon_256x256.bcb87766db70abd4884e199ccb95409d.png",
+      "sizes": "256x256",
+      "type": "image/png"
+    },
+    {
+      "src": "/goodlok/icon_192x192.16f99122ae4e3535b168ad2feea97145.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/goodlok/icon_128x128.64311b6af6be3c3d1a306676a8966ca6.png",
+      "sizes": "128x128",
+      "type": "image/png"
+    },
+    {
+      "src": "/goodlok/icon_96x96.b8c8a923e7018195ded287252f188e1f.png",
+      "sizes": "96x96",
+      "type": "image/png"
+    },
+    {
+      "src": "/goodlok/icon_36x36.9d037295502d0b29658c51233bc9be86.png",
+      "sizes": "36x36",
+      "type": "image/png"
+    }
+  ],
+  "name": "Goodlok",
+  "short_name": "Goodlok",
+  "orientation": "portrait",
+  "display": "standalone",
+  "start_url": ".",
+  "description": "Buďte zdraví jako řípa",
+  "background_color": "#ffffff"
+}
