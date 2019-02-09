@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "cz.onset.dotap",
+      "sha256_cert_fingerprints": [
+        "35:11:38:FD:6F:8B:E4:20:78:4E:23:F0:51:60:06:91:6E:11:80:A7:59:8B:EC:D8:57:2C:A8:32:84:04:4E:75"
+      ]
+    }
+  }
+]
