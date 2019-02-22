@@ -52,11 +52,15 @@
 
     <script>
       var lKey = 76;
-      var visibilityDuration = 5 * 60 * 1000; // 5 minutes
+      var visibilityDuration = 20 * 1000; // 20 seconds
+      var refreshWait = 1000; // 1 second
 
       var hidden = true;
       var iframe = document.querySelector("iframe");
-      var timer = null;
+      var visibilityTimer = null;
+      var reloadTimer = null;
+      var refreshTimer = null;
+      var refreshCounter = 0;
 
       function toggleVisibility(newHiddenValue) {
         hidden = newHiddenValue;
@@ -65,16 +69,25 @@
 
       document.addEventListener("keydown", function(event) {
         if (event.keyCode === lKey) {
-          clearTimeout(timer);
+          clearTimeout(visibilityTimer);
+          clearTimeout(refreshTimer);
           toggleVisibility(!hidden);
 
           if (!hidden) {
-            timer = setTimeout(function() {
+            visibilityTimer = setTimeout(function() {
               if (!hidden) {
                 toggleVisibility(true);
               }
             }, visibilityDuration);
           }
+
+          refreshCounter++;
+          if (refreshCounter === 5) {
+            window.location.reload();
+          }
+          refreshTimer = setTimeout(function() {
+            refreshCounter = 0;
+          }, refreshWait);
         }
       });
     </script>
