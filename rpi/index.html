@@ -53,6 +53,7 @@
 
     <script>
       var lKey = 76;
+      var cardKey = 56;
       var visibilityDuration = 20 * 1000; // 20 seconds
       var refreshWait = 500; // 1 second
 
@@ -69,7 +70,9 @@
       }
 
       document.addEventListener("keydown", function(event) {
-        if (event.keyCode === lKey) {
+        var keyCode = event.keyCode;
+        console.log(keyCode, cardKey, keyCode === cardKey);
+        if (keyCode === lKey || keyCode === cardKey) {
           clearTimeout(visibilityTimer);
           clearTimeout(refreshTimer);
           toggleVisibility(!hidden);
