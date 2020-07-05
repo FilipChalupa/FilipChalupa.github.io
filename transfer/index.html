@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="cs">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Bankovní spojení</title>
+		<style>
+			body {
+				font-family: 'Trebuchet MS', Arial, Helvetica, sans-serif;
+				max-width: 640px;
+				margin-left: auto;
+				margin-right: auto;
+			}
+			table {
+				border-collapse: collapse;
+				width: 100%;
+				--header: #545454;
+			}
+			table + table {
+				margin-top: 1em;
+			}
+			table td,
+			table th {
+				border: 1px solid #ddd;
+				padding: 8px;
+			}
+			table tr:nth-child(even) {
+				background-color: #f2f2f2;
+			}
+			table tr:hover {
+				background-color: #ddd;
+			}
+			table th {
+				padding-top: 12px;
+				padding-bottom: 12px;
+				text-align: left;
+				background-color: var(--header);
+				color: white;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>Filip Chalupa - bankovní spojení</h1>
+
+		<h2>Česká spořitelna</h2>
+		<table style="--header: #005e8f;">
+			<tr>
+				<th>Předčíslí</th>
+				<th>Číslo účtu</th>
+				<th>Kód banky</th>
+			</tr>
+			<tr>
+				<td style="opacity: 0.2; text-align: right;">0</td>
+				<td>2211262093</td>
+				<td>0800</td>
+			</tr>
+		</table>
+		<table style="--header: #005e8f;">
+			<tr>
+				<th>IBAN</th>
+				<th>BIC/SWIFT</th>
+			</tr>
+			<tr>
+				<td>CZ21 0800 0000 0022 1126 2093</td>
+				<td>GIBACZPX</td>
+			</tr>
+		</table>
+
+		<h2>Revolut</h2>
+		<table style="--header: #0566eb;">
+			<tr>
+				<th>Username</th>
+			</tr>
+			<tr>
+				<td>@filip4m4</td>
+			</tr>
+		</table>
+
+		<h2>TransferWise</h2>
+		<table style="--header: #37517e;">
+			<tr>
+				<th>Membership number</th>
+			</tr>
+			<tr>
+				<td>P5111082</td>
+			</tr>
+		</table>
+	</body>
+</html>
