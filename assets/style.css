@@ -1,0 +1,12 @@
+body {
+	font-family: Arial, Helvetica, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+	body {
+		color: white;
+		background-color: #0e0e0e;
+	}
+}
+a {
+	color: #06a004;
+}
