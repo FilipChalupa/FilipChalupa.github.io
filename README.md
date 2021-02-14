@@ -1,1 +1,3 @@
-# [filipchalupa.github.io](https://filipchalupa.github.io/)
+# [filipchalupa.cz](https://filipchalupa.cz/)
+
+Personal website
