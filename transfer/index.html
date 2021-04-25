@@ -5,13 +5,14 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Bankovní spojení | Filip Chalupa</title>
 		<link rel="icon" type="image/png" href="../assets/profile.jpg" />
-		<meta name="color-scheme" content="light dark">
+		<meta name="color-scheme" content="light dark" />
 		<link rel="stylesheet" href="../assets/style.css" />
 		<style>
 			body {
 				max-width: 640px;
 				margin-left: auto;
 				margin-right: auto;
+				padding: 0.5em;
 			}
 			table {
 				border-collapse: collapse;
@@ -27,7 +28,7 @@
 				border: 1px solid #ddd;
 				padding: 8px;
 			}
-			table tr:nth-child(even) {
+			table tr:nth-child(n + 1) {
 				background-color: #f2f2f2;
 			}
 			table tr:hover {
@@ -41,35 +42,40 @@
 				color: white;
 				text-shadow: 0 0 3px #000000;
 			}
+			table img {
+				display: block;
+				width: 140px;
+			}
 		</style>
 	</head>
 	<body>
 		<h1>Filip Chalupa - bankovní spojení</h1>
 
 		<h2>Bitcoin</h2>
-		<table style="--header: #F79400;">
-			<tr>
-				<th>Adresa</th>
+		<table style="--header: #f79400">
+			<tr style="height: 43px">
+				<th style="width: 100%">Adresa</th>
+				<td rowspan="2"><img src="bitcoin.svg" alt="qr adresa" /></td>
 			</tr>
 			<tr>
-				<td>3QoMYp1PqqY67HsHkCksgLLPJ11DH3hCPL</td>
+				<td style="text-align: center">3QoMYp1PqqY67HsHkCksgLLPJ11DH3hCPL</td>
 			</tr>
 		</table>
 
 		<h2>Česká spořitelna</h2>
-		<table style="--header: #005e8f;">
+		<table style="--header: #005e8f">
 			<tr>
 				<th>Předčíslí</th>
-				<th style="text-align: right;">Číslo účtu</th>
+				<th style="text-align: right">Číslo účtu</th>
 				<th>Kód banky</th>
 			</tr>
 			<tr>
-				<td style="opacity: 0.2; text-align: right;">000000</td>
-				<td style="text-align: right;">2211262093</td>
+				<td style="opacity: 0.2; text-align: right">000000</td>
+				<td style="text-align: right">2211262093</td>
 				<td>0800</td>
 			</tr>
 		</table>
-		<table style="--header: #005e8f;">
+		<table style="--header: #005e8f">
 			<tr>
 				<th>IBAN</th>
 				<th>BIC/SWIFT</th>
@@ -81,7 +87,7 @@
 		</table>
 
 		<h2>Revolut</h2>
-		<table style="--header: #0566eb;">
+		<table style="--header: #0566eb">
 			<tr>
 				<th>E-mail</th>
 				<th>Telefon</th>
@@ -95,7 +101,7 @@
 		</table>
 
 		<h2>TransferWise</h2>
-		<table style="--header: #37517e;">
+		<table style="--header: #37517e">
 			<tr>
 				<th>E-mail</th>
 				<th>Membership number</th>
