@@ -13,6 +13,11 @@
 				margin-left: auto;
 				margin-right: auto;
 				padding: 0.5em;
+				overflow-y: scroll;
+			}
+			h1 {
+				position: relative;
+				z-index: 1;
 			}
 			table {
 				border-collapse: collapse;
@@ -46,70 +51,110 @@
 				display: block;
 				width: 140px;
 			}
+			.target:target {
+				position: relative;
+			}
+			.target:target::before,
+			.target:target::after {
+				content: '';
+				margin: 12px 0;
+				position: absolute;
+				bottom: 100%;
+				left: -6px;
+				right: -6px;
+				backdrop-filter: grayscale(100%) blur(1px);
+				height: 800px;
+			}
+			.target:target::after {
+				top: 100%;
+				bottom: auto;
+			}
+			.target h2 a {
+				color: inherit;
+				text-decoration: none;
+			}
+			.target h2 a:hover,
+			.target h2 a:focus-visible {
+				text-decoration: underline;
+			}
 		</style>
 	</head>
 	<body>
 		<h1>Filip Chalupa - bankovní spojení</h1>
 
-		<h2>Bitcoin</h2>
-		<table style="--header: #f79400">
-			<tr style="height: 43px">
-				<th style="width: 100%">Adresa</th>
-				<td rowspan="2"><img src="bitcoin.svg" alt="qr adresa" /></td>
-			</tr>
-			<tr>
-				<td style="text-align: center">3QoMYp1PqqY67HsHkCksgLLPJ11DH3hCPL</td>
-			</tr>
-		</table>
+		<div class="target" id="bitcoin">
+			<h2><a href="#bitcoin">Bitcoin</a></h2>
+			<table style="--header: #f79400">
+				<tr style="height: 43px">
+					<th style="width: 100%">Adresa</th>
+					<td rowspan="2"><img src="bitcoin.svg" alt="qr adresa" /></td>
+				</tr>
+				<tr>
+					<td style="text-align: center">3QoMYp1PqqY67HsHkCksgLLPJ11DH3hCPL</td>
+				</tr>
+			</table>
+		</div>
 
-		<h2>Česká spořitelna</h2>
-		<table style="--header: #005e8f">
-			<tr>
-				<th>Předčíslí</th>
-				<th style="text-align: right">Číslo účtu</th>
-				<th>Kód banky</th>
-			</tr>
-			<tr>
-				<td style="opacity: 0.2; text-align: right">000000</td>
-				<td style="text-align: right">2211262093</td>
-				<td>0800</td>
-			</tr>
-		</table>
-		<table style="--header: #005e8f">
-			<tr>
-				<th>IBAN</th>
-				<th>BIC/SWIFT</th>
-			</tr>
-			<tr>
-				<td>CZ21 0800 0000 0022 1126 2093</td>
-				<td>GIBACZPX</td>
-			</tr>
-		</table>
+		<div class="target" id="ceska-sporitelna">
+			<h2><a href="#ceska-sporitelna">Česká spořitelna</a></h2>
+			<table style="--header: #005e8f">
+				<tr>
+					<th style="text-align: right">Předčíslí</th>
+					<th style="text-align: right">Číslo účtu</th>
+					<th>Kód banky</th>
+				</tr>
+				<tr>
+					<td style="opacity: 0.2; text-align: right">000000</td>
+					<td style="text-align: right">2211262093</td>
+					<td>0800</td>
+				</tr>
+			</table>
+			<table style="--header: #005e8f">
+				<tr>
+					<th>IBAN</th>
+					<th>BIC/SWIFT</th>
+				</tr>
+				<tr>
+					<td>CZ21 0800 0000 0022 1126 2093</td>
+					<td>GIBACZPX</td>
+				</tr>
+			</table>
+		</div>
 
-		<h2>Revolut</h2>
-		<table style="--header: #0566eb">
-			<tr>
-				<th>E-mail</th>
-				<th>Telefon</th>
-				<th>Username</th>
-			</tr>
-			<tr>
-				<td>chalupa.filip@gmail.com</td>
-				<td>+420 731 742 950</td>
-				<td>@filip4m4</td>
-			</tr>
-		</table>
+		<div class="target" id="revolut">
+			<h2><a href="#revolut">Revolut</a></h2>
+			<table style="--header: #0566eb">
+				<tr>
+					<th>E-mail</th>
+					<th>Telefon</th>
+					<th>Username</th>
+				</tr>
+				<tr>
+					<td>chalupa.filip@gmail.com</td>
+					<td>+420 731 742 950</td>
+					<td>@filip4m4</td>
+				</tr>
+			</table>
+		</div>
 
-		<h2>TransferWise</h2>
-		<table style="--header: #37517e">
-			<tr>
-				<th>E-mail</th>
-				<th>Membership number</th>
-			</tr>
-			<tr>
-				<td>chalupa.filip@gmail.com</td>
-				<td>P5111082</td>
-			</tr>
-		</table>
+		<div class="target" id="transfer-wise">
+			<h2><a href="#transfer-wise">TransferWise</a></h2>
+			<table style="--header: #37517e">
+				<tr>
+					<th>E-mail</th>
+					<th>Membership number</th>
+				</tr>
+				<tr>
+					<td>chalupa.filip@gmail.com</td>
+					<td>P5111082</td>
+				</tr>
+			</table>
+		</div>
+
+		<script>
+			document.addEventListener('click', () => {
+				location.hash = ''
+			})
+		</script>
 	</body>
 </html>
