@@ -24,6 +24,7 @@
 				width: 100%;
 				--header: #545454;
 				color: #000000;
+				table-layout: fixed;
 			}
 			table + table {
 				margin-top: 1em;
@@ -47,9 +48,12 @@
 				color: white;
 				text-shadow: 0 0 3px #000000;
 			}
-			table img {
-				display: block;
+			.qr {
 				width: 140px;
+			}
+			.qr img {
+				display: block;
+				width: 100%;
 				height: auto;
 			}
 			table a {
@@ -95,19 +99,6 @@
 	</head>
 	<body>
 		<h1>Filip Chalupa - bankovní spojení</h1>
-
-		<div class="target" id="bitcoin">
-			<h2><a href="#bitcoin">Bitcoin</a></h2>
-			<table style="--header: #f79400">
-				<tr style="height: 43px">
-					<th style="width: 100%">Adresa</th>
-					<td rowspan="2"><img src="bitcoin.svg" alt="qr adresa" width="200" height="200" /></td>
-				</tr>
-				<tr>
-					<td style="text-align: center">3QoMYp1PqqY67HsHkCksgLLPJ11DH3hCPL</td>
-				</tr>
-			</table>
-		</div>
 
 		<div class="target" id="ceska-sporitelna">
 			<h2><a href="#ceska-sporitelna">Česká spořitelna</a></h2>
@@ -161,6 +152,32 @@
 					<td>@filip4m4</td>
 					<td>chalupa.filip@gmail.com</td>
 					<td>+420 731 742 950</td>
+				</tr>
+			</table>
+		</div>
+
+		<div class="target" id="bitcoin">
+			<h2><a href="#bitcoin">Bitcoin</a></h2>
+			<table style="--header: #f79400">
+				<tr style="height: 43px">
+					<th style="width: 100%">Adresa</th>
+					<td class="qr" rowspan="2"><img src="bitcoin.svg" alt="qr adresa" width="200" height="200" /></td>
+				</tr>
+				<tr>
+					<td style="text-align: center; word-wrap: break-word;">3QoMYp1PqqY67HsHkCksgLLPJ11DH3hCPL</td>
+				</tr>
+			</table>
+		</div>
+
+		<div class="target" id="lightning-network">
+			<h2><a href="#lightning-network">Lightning network</a></h2>
+			<table style="--header: #06a004">
+				<tr style="height: 43px">
+					<th style="width: 100%">Faktura</th>
+					<td class="qr" rowspan="2"><img src="ln.svg" alt="lightning network faktura" width="200" height="200" /></td>
+				</tr>
+				<tr>
+					<td style="text-align: center; word-wrap: break-word;">lnbc1ps5fgvnpp5rc6ac87lpjl8jrrwwtrggehc56g860avegxa93645a352s32zqhqdqqcqzpgxqrrsssp5aw3rtx8jqyvw4hzz59fjr5cclvl53388y9570469kehunzme5nxq9qyyssqw4hprf4hv8vgkv4psq3el080yrqjg5jxnn7sxqrxjtl7n0fls40rjv7h3rrz63q84cv2c79trf7nyn4sdrwkqh2x0nntqu2mf7mzy2qq7vxh4w</td>
 				</tr>
 			</table>
 		</div>
