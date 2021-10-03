@@ -3,5 +3,6 @@
   "maxSendable": 100000000,
   "minSendable": 10000,
   "metadata": "[[\"text/identifier\",\"ln@filipchalupa.cz\"]]",
-  "commentAllowed": 0
+  "commentAllowed": 0,
+	"tag": "payRequest"
 }
