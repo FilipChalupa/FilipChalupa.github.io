@@ -1,0 +1,7 @@
+{
+  "callback": "https://lnurl.netlify.app/.netlify/functions/invoice",
+  "maxSendable": 100000000,
+  "minSendable": 10000,
+  "metadata": "[[\"text/identifier\",\"ln@filipchalupa.cz\"]]",
+  "commentAllowed": 0
+}
