@@ -1,5 +1,12 @@
 {
 	"zehlicka": "off",
 	"pracka": "on",
-	"teplota": 19
+	"teplota": 19,
+	"svetla": {
+		"chodba": "off",
+		"kuchyn": "off",
+		"loznice": "off",
+		"zachod": "on",
+		"koupelna": "off"
+	}
 }
