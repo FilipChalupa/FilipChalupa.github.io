@@ -1,7 +1,9 @@
 {
-	"zehlicka": "off",
-	"pracka": "on",
 	"teplota": 19,
+	"zarizeni": {
+		"zehlicka": "off",
+		"pracka": "on"
+	},
 	"svetla": {
 		"chodba": "off",
 		"kuchyn": "off",
