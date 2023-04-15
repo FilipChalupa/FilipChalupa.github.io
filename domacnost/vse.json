@@ -1,8 +1,10 @@
 {
 	"teplota": 19,
+	"vlhkost": 49,
 	"zarizeni": {
 		"zehlicka": "off",
-		"pracka": "on"
+		"pracka": "on",
+		"odvlhcovac": "off"
 	},
 	"svetla": {
 		"chodba": "off",
