@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="cs">
 	<head>
 		<meta charset="UTF-8" />
@@ -6,285 +6,389 @@
 		<title>Bankovní spojení | Filip Chalupa</title>
 		<link rel="icon" type="image/png" href="../assets/profile.jpg" />
 		<meta name="color-scheme" content="light dark" />
-		<link rel="stylesheet" href="../assets/style.css" />
-		<style>
-			body {
-				max-width: 640px;
-				margin-left: auto;
-				margin-right: auto;
-				padding: 0.5em;
-				overflow-y: scroll;
-			}
-			h1 {
-				position: relative;
-				z-index: 1;
-			}
-			table {
-				border-collapse: collapse;
-				width: 100%;
-				--header: #545454;
-				color: #000000;
-				table-layout: fixed;
-			}
-			table + table {
-				margin-top: 1em;
-			}
-			table td,
-			table th {
-				border: 1px solid #ddd;
-				padding: 8px;
-			}
-			table tr:nth-child(n + 1) {
-				background-color: #f2f2f2;
-			}
-			table tr:hover {
-				background-color: #ddd;
-			}
-			table th {
-				padding-top: 12px;
-				padding-bottom: 12px;
-				text-align: left;
-				background-color: var(--header);
-				color: white;
-				text-shadow: 0 0 3px #000000;
-			}
-			.qr {
-				width: 140px;
-				background-color: #ffffff;
-			}
-			.qr img {
-				display: block;
-				width: 100%;
-				height: auto;
-				image-rendering: pixelated;
-			}
-			table a {
-				color: inherit;
-			}
-			table a:hover,
-			table a:focus {
-				text-decoration: none;
-			}
-			.target {
-				scroll-margin-top: 3em;
-			}
-			.target:target {
-				position: relative;
-			}
-			.target:target::before,
-			.target:target::after {
-				content: '';
-				margin: 12px 0;
-				position: absolute;
-				bottom: 100%;
-				left: -6px;
-				right: -6px;
-				backdrop-filter: grayscale(100%) blur(1px);
-				height: 800px;
-			}
-			.target:target::after {
-				top: 100%;
-				bottom: auto;
-			}
-			.target h2 {
-				margin-top: 1.75em;
-			}
-			.target h2 a {
-				color: inherit;
-				text-decoration: none;
-			}
-			.target h2 a:hover,
-			.target h2 a:focus-visible {
-				text-decoration: underline;
-			}
-		</style>
+		<link rel="stylesheet" href="../dist/styles.css" />
 	</head>
-	<body>
-		<h1>Filip Chalupa - bankovní spojení</h1>
+	<body
+		class="max-w-2xl mx-auto p-2 overflow-y-scroll dark:text-white dark:bg-dark-bg"
+	>
+		<h1 class="relative z-10 text-2xl font-bold my-4">
+			Filip Chalupa - bankovní spojení
+		</h1>
 
 		<div class="target" id="ceska-sporitelna">
-			<h2><a href="#ceska-sporitelna">Česká spořitelna</a></h2>
-			<table style="--header: #005e8f">
-				<tr>
-					<th style="text-align: right">Předčíslí</th>
-					<th style="text-align: right">Číslo účtu</th>
-					<th>Kód banky</th>
-				</tr>
-				<tr>
-					<td style="opacity: 0.2; text-align: right">000000</td>
-					<td style="text-align: right">2211262093</td>
-					<td>0800</td>
-				</tr>
+			<h2 class="mt-7 mb-4">
+				<a href="#ceska-sporitelna" class="text-brand-green hover:underline"
+					>Česká spořitelna</a
+				>
+			</h2>
+			<table class="w-full border-collapse my-4 dark:text-gray-200">
+				<tbody>
+					<tr class="border border-gray-300 dark:border-gray-600">
+						<th
+							class="text-right py-2 px-2 bg-bank-ceska text-white"
+							style="text-shadow: 0 0 3px #000000"
+						>
+							Předčíslí
+						</th>
+						<th
+							class="text-right py-2 px-2 bg-bank-ceska text-white"
+							style="text-shadow: 0 0 3px #000000"
+						>
+							Číslo účtu
+						</th>
+						<th
+							class="py-2 px-2 bg-bank-ceska text-white"
+							style="text-shadow: 0 0 3px #000000"
+						>
+							Kód banky
+						</th>
+					</tr>
+					<tr
+						class="bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-600 hover:bg-gray-300 dark:hover:bg-gray-700"
+					>
+						<td class="text-right py-2 px-2 opacity-20">000000</td>
+						<td class="text-right py-2 px-2">2211262093</td>
+						<td class="py-2 px-2">0800</td>
+					</tr>
+				</tbody>
 			</table>
-			<table style="--header: #005e8f">
-				<tr>
-					<th>IBAN</th>
-					<th>BIC/SWIFT</th>
-				</tr>
-				<tr>
-					<td>CZ21 0800 0000 0022 1126 2093</td>
-					<td>GIBACZPX</td>
-				</tr>
+			<table class="w-full border-collapse my-4 dark:text-gray-200">
+				<tbody>
+					<tr class="border border-gray-300 dark:border-gray-600">
+						<th
+							class="py-2 px-2 bg-bank-ceska text-white"
+							style="text-shadow: 0 0 3px #000000"
+						>
+							IBAN
+						</th>
+						<th
+							class="py-2 px-2 bg-bank-ceska text-white"
+							style="text-shadow: 0 0 3px #000000"
+						>
+							BIC/SWIFT
+						</th>
+					</tr>
+					<tr
+						class="bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-600 hover:bg-gray-300 dark:hover:bg-gray-700"
+					>
+						<td class="py-2 px-2">CZ21 0800 0000 0022 1126 2093</td>
+						<td class="py-2 px-2">GIBACZPX</td>
+					</tr>
+				</tbody>
 			</table>
-			<table style="--header: #005e8f">
-				<tr>
-					<th>Platba na kontakt</th>
-				</tr>
-				<tr>
-					<td>+420 731 742 950</td>
-				</tr>
+			<table class="w-full border-collapse my-4 dark:text-gray-200">
+				<tbody>
+					<tr class="border border-gray-300 dark:border-gray-600">
+						<th
+							class="py-2 px-2 bg-bank-ceska text-white"
+							style="text-shadow: 0 0 3px #000000"
+						>
+							Platba na kontakt
+						</th>
+					</tr>
+					<tr
+						class="bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-600 hover:bg-gray-300 dark:hover:bg-gray-700"
+					>
+						<td class="py-2 px-2">+420 731 742 950</td>
+					</tr>
+				</tbody>
 			</table>
 		</div>
 
 		<div class="target" id="csob">
-			<h2><a href="#csob">ČSOB</a></h2>
-			<table style="--header: #0099cc">
-				<tr>
-					<th style="text-align: right">Číslo účtu</th>
-					<th>Kód banky</th>
-				</tr>
-				<tr>
-					<td style="text-align: right">298930736</td>
-					<td>0300</td>
-				</tr>
+			<h2 class="mt-7 mb-4">
+				<a href="#csob" class="text-brand-green hover:underline">ČSOB</a>
+			</h2>
+			<table class="w-full border-collapse my-4 dark:text-gray-200">
+				<tbody>
+					<tr class="border border-gray-300 dark:border-gray-600">
+						<th
+							class="text-right py-2 px-2 bg-bank-csob text-white"
+							style="text-shadow: 0 0 3px #000000"
+						>
+							Číslo účtu
+						</th>
+						<th
+							class="py-2 px-2 bg-bank-csob text-white"
+							style="text-shadow: 0 0 3px #000000"
+						>
+							Kód banky
+						</th>
+					</tr>
+					<tr
+						class="bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-600 hover:bg-gray-300 dark:hover:bg-gray-700"
+					>
+						<td class="text-right py-2 px-2">298930736</td>
+						<td class="py-2 px-2">0300</td>
+					</tr>
+				</tbody>
 			</table>
-			<table style="--header: #0099cc">
-				<tr>
-					<th>IBAN</th>
-					<th>BIC/SWIFT</th>
-				</tr>
-				<tr>
-					<td>CZ04 0300 0000 0002 9893 0736</td>
-					<td>CEKOCZPP</td>
-				</tr>
+			<table class="w-full border-collapse my-4 dark:text-gray-200">
+				<tbody>
+					<tr class="border border-gray-300 dark:border-gray-600">
+						<th
+							class="py-2 px-2 bg-bank-csob text-white"
+							style="text-shadow: 0 0 3px #000000"
+						>
+							IBAN
+						</th>
+						<th
+							class="py-2 px-2 bg-bank-csob text-white"
+							style="text-shadow: 0 0 3px #000000"
+						>
+							BIC/SWIFT
+						</th>
+					</tr>
+					<tr
+						class="bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-600 hover:bg-gray-300 dark:hover:bg-gray-700"
+					>
+						<td class="py-2 px-2">CZ04 0300 0000 0002 9893 0736</td>
+						<td class="py-2 px-2">CEKOCZPP</td>
+					</tr>
+				</tbody>
 			</table>
 		</div>
 
 		<div class="target" id="moneta">
-			<h2><a href="#moneta">Moneta</a></h2>
-			<table style="--header: #2b1f69">
-				<tr>
-					<th style="text-align: right">Číslo účtu</th>
-					<th>Kód banky</th>
-				</tr>
-				<tr>
-					<td style="text-align: right">265611341</td>
-					<td>0600</td>
-				</tr>
+			<h2 class="mt-7 mb-4">
+				<a href="#moneta" class="text-brand-green hover:underline">Moneta</a>
+			</h2>
+			<table class="w-full border-collapse my-4 dark:text-gray-200">
+				<tbody>
+					<tr class="border border-gray-300 dark:border-gray-600">
+						<th
+							class="text-right py-2 px-2 bg-bank-moneta text-white"
+							style="text-shadow: 0 0 3px #000000"
+						>
+							Číslo účtu
+						</th>
+						<th
+							class="py-2 px-2 bg-bank-moneta text-white"
+							style="text-shadow: 0 0 3px #000000"
+						>
+							Kód banky
+						</th>
+					</tr>
+					<tr
+						class="bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-600 hover:bg-gray-300 dark:hover:bg-gray-700"
+					>
+						<td class="text-right py-2 px-2">265611341</td>
+						<td class="py-2 px-2">0600</td>
+					</tr>
+				</tbody>
 			</table>
 		</div>
 
 		<div class="target" id="revolut">
-			<h2><a href="#revolut">Revolut</a></h2>
-			<table style="--header: #0566eb">
-				<tr>
-					<th>Uživatelské jméno</th>
-					<th>E-mail</th>
-					<th>Telefon</th>
-				</tr>
-				<tr>
-					<td><a href="https://revolut.me/filipchalupa">@filipchalupa</a></td>
-					<td>chalupa.filip@gmail.com</td>
-					<td>+420 731 742 950</td>
-				</tr>
+			<h2 class="mt-7 mb-4">
+				<a href="#revolut" class="text-brand-green hover:underline">Revolut</a>
+			</h2>
+			<table class="w-full border-collapse my-4 dark:text-gray-200">
+				<tbody>
+					<tr class="border border-gray-300 dark:border-gray-600">
+						<th
+							class="py-2 px-2 bg-bank-revolut text-white"
+							style="text-shadow: 0 0 3px #000000"
+						>
+							Uživatelské jméno
+						</th>
+						<th
+							class="py-2 px-2 bg-bank-revolut text-white"
+							style="text-shadow: 0 0 3px #000000"
+						>
+							E-mail
+						</th>
+						<th
+							class="py-2 px-2 bg-bank-revolut text-white"
+							style="text-shadow: 0 0 3px #000000"
+						>
+							Telefon
+						</th>
+					</tr>
+					<tr
+						class="bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-600 hover:bg-gray-300 dark:hover:bg-gray-700"
+					>
+						<td class="py-2 px-2">
+							<a
+								href="https://revolut.me/filipchalupa"
+								class="text-brand-green hover:underline"
+								>@filipchalupa</a
+							>
+						</td>
+						<td class="py-2 px-2">chalupa.filip@gmail.com</td>
+						<td class="py-2 px-2">+420 731 742 950</td>
+					</tr>
+				</tbody>
 			</table>
 		</div>
 
 		<div class="target" id="bitcoin">
-			<h2><a href="#bitcoin">Bitcoin</a></h2>
-			<table style="--header: #f79400">
-				<tr style="height: 43px">
-					<th style="width: 100%">Adresa</th>
-					<td class="qr" rowspan="2">
-						<img src="bitcoin.png" alt="qr adresa" width="200" height="200" />
-					</td>
-				</tr>
-				<tr>
-					<td style="text-align: center; word-wrap: break-word;">
-						bc1qn9fwmetym38szaerupmcmpa0kgun6xsx366h97
-					</td>
-				</tr>
+			<h2 class="mt-7 mb-4">
+				<a href="#bitcoin" class="text-brand-green hover:underline">Bitcoin</a>
+			</h2>
+			<table class="w-full border-collapse my-4 dark:text-gray-200">
+				<tbody>
+					<tr
+						class="border border-gray-300 dark:border-gray-600"
+						style="height: 43px"
+					>
+						<th
+							class="py-2 px-2 bg-bank-bitcoin text-white w-full"
+							style="text-shadow: 0 0 3px #000000"
+						>
+							Adresa
+						</th>
+						<td class="w-36 bg-white dark:bg-gray-900" rowspan="2">
+							<img
+								src="bitcoin.png"
+								alt="qr adresa"
+								width="200"
+								height="200"
+								class="w-full h-auto"
+							/>
+						</td>
+					</tr>
+					<tr
+						class="bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-600 hover:bg-gray-300 dark:hover:bg-gray-700"
+					>
+						<td class="text-center py-2 px-2 break-words">
+							bc1qn9fwmetym38szaerupmcmpa0kgun6xsx366h97
+						</td>
+					</tr>
+				</tbody>
 			</table>
 		</div>
 
 		<div class="target" id="lightning-network">
-			<h2><a href="#lightning-network">Lightning network</a></h2>
-			<!--<table style="--header: #0171f3">
-				<tr>
-					<th>Lightning Address</th>
-				</tr>
-				<tr>
-					<td>
-						ln@filipchalupa.cz
-					</td>
-				</tr>
-			</table>-->
-			<table style="--header: #f8700d">
-				<tr>
-					<th>Lightning Address</th>
-				</tr>
-				<tr>
-					<td>fch@bitlifi.com</td>
-				</tr>
-				<tr>
-					<td>+420731742950@bitlifi.com</td>
-				</tr>
-				<tr>
-					<td>fila@walletofsatoshi.com</td>
-				</tr>
-			</table>
-			<table style="--header: #04a600">
-				<tr>
-					<th>tippin.me</th>
-				</tr>
-				<tr>
-					<td>
-						<a href="https://tippin.me/@filipchalupa"
-							>tippin.me/@filipchalupa</a
+			<h2 class="mt-7 mb-4">
+				<a href="#lightning-network" class="text-brand-green hover:underline"
+					>Lightning network</a
+				>
+			</h2>
+			<table class="w-full border-collapse my-4 dark:text-gray-200">
+				<tbody>
+					<tr class="border border-gray-300 dark:border-gray-600">
+						<th
+							class="py-2 px-2 bg-bank-lightning text-white"
+							style="text-shadow: 0 0 3px #000000"
 						>
-					</td>
-				</tr>
+							Lightning Address
+						</th>
+					</tr>
+					<tr
+						class="bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-600 hover:bg-gray-300 dark:hover:bg-gray-700"
+					>
+						<td class="py-2 px-2">fch@bitlifi.com</td>
+					</tr>
+					<tr
+						class="bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-600 hover:bg-gray-300 dark:hover:bg-gray-700"
+					>
+						<td class="py-2 px-2">+420731742950@bitlifi.com</td>
+					</tr>
+					<tr
+						class="bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-600 hover:bg-gray-300 dark:hover:bg-gray-700"
+					>
+						<td class="py-2 px-2">fila@walletofsatoshi.com</td>
+					</tr>
+				</tbody>
 			</table>
-			<!--<table style="--header: #06a004">
-				<tr style="height: 43px">
-					<th style="width: 100%">Faktura</th>
-					<td class="qr" rowspan="2"><img src="ln.svg" alt="lightning network faktura" width="200" height="200" /></td>
-				</tr>
-				<tr>
-					<td style="text-align: center; word-wrap: break-word;">lnbc1ps5fgvnpp5rc6ac87lpjl8jrrwwtrggehc56g860avegxa93645a352s32zqhqdqqcqzpgxqrrsssp5aw3rtx8jqyvw4hzz59fjr5cclvl53388y9570469kehunzme5nxq9qyyssqw4hprf4hv8vgkv4psq3el080yrqjg5jxnn7sxqrxjtl7n0fls40rjv7h3rrz63q84cv2c79trf7nyn4sdrwkqh2x0nntqu2mf7mzy2qq7vxh4w</td>
-				</tr>
-			</table>-->
+			<table class="w-full border-collapse my-4 dark:text-gray-200">
+				<tbody>
+					<tr class="border border-gray-300 dark:border-gray-600">
+						<th
+							class="py-2 px-2 bg-bank-tippin text-white"
+							style="text-shadow: 0 0 3px #000000"
+						>
+							tippin.me
+						</th>
+					</tr>
+					<tr
+						class="bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-600 hover:bg-gray-300 dark:hover:bg-gray-700"
+					>
+						<td class="py-2 px-2">
+							<a
+								href="https://tippin.me/@filipchalupa"
+								class="text-brand-green hover:underline"
+								>tippin.me/@filipchalupa</a
+							>
+						</td>
+					</tr>
+				</tbody>
+			</table>
 		</div>
 
 		<div class="target" id="paypal">
-			<h2><a href="#paypal">PayPal</a></h2>
-			<table style="--header: #0569b6">
-				<tr>
-					<th>Uživatelské jméno</th>
-					<th>E-mail</th>
-					<th>Telefon</th>
-				</tr>
-				<tr>
-					<td>
-						<a href="https://paypal.me/ChalupaFilip">ChalupaFilip</a>
-					</td>
-					<td>chalupa.filip@gmail.com</td>
-					<td>+420 731 742 950</td>
-				</tr>
+			<h2 class="mt-7 mb-4">
+				<a href="#paypal" class="text-brand-green hover:underline">PayPal</a>
+			</h2>
+			<table class="w-full border-collapse my-4 dark:text-gray-200">
+				<tbody>
+					<tr class="border border-gray-300 dark:border-gray-600">
+						<th
+							class="py-2 px-2 bg-bank-paypal text-white"
+							style="text-shadow: 0 0 3px #000000"
+						>
+							Uživatelské jméno
+						</th>
+						<th
+							class="py-2 px-2 bg-bank-paypal text-white"
+							style="text-shadow: 0 0 3px #000000"
+						>
+							E-mail
+						</th>
+						<th
+							class="py-2 px-2 bg-bank-paypal text-white"
+							style="text-shadow: 0 0 3px #000000"
+						>
+							Telefon
+						</th>
+					</tr>
+					<tr
+						class="bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-600 hover:bg-gray-300 dark:hover:bg-gray-700"
+					>
+						<td class="py-2 px-2">
+							<a
+								href="https://paypal.me/ChalupaFilip"
+								class="text-brand-green hover:underline"
+								>ChalupaFilip</a
+							>
+						</td>
+						<td class="py-2 px-2">chalupa.filip@gmail.com</td>
+						<td class="py-2 px-2">+420 731 742 950</td>
+					</tr>
+				</tbody>
 			</table>
 		</div>
 
 		<div class="target" id="transfer-wise">
-			<h2><a href="#transfer-wise">TransferWise</a></h2>
-			<table style="--header: #37517e">
-				<tr>
-					<th>E-mail</th>
-					<th>Membership number</th>
-				</tr>
-				<tr>
-					<td>chalupa.filip@gmail.com</td>
-					<td>P5111082</td>
-				</tr>
+			<h2 class="mt-7 mb-4">
+				<a href="#transfer-wise" class="text-brand-green hover:underline"
+					>TransferWise</a
+				>
+			</h2>
+			<table class="w-full border-collapse my-4 dark:text-gray-200">
+				<tbody>
+					<tr class="border border-gray-300 dark:border-gray-600">
+						<th
+							class="py-2 px-2 bg-bank-transferwise text-white"
+							style="text-shadow: 0 0 3px #000000"
+						>
+							E-mail
+						</th>
+						<th
+							class="py-2 px-2 bg-bank-transferwise text-white"
+							style="text-shadow: 0 0 3px #000000"
+						>
+							Membership number
+						</th>
+					</tr>
+					<tr
+						class="bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-600 hover:bg-gray-300 dark:hover:bg-gray-700"
+					>
+						<td class="py-2 px-2">chalupa.filip@gmail.com</td>
+						<td class="py-2 px-2">P5111082</td>
+					</tr>
+				</tbody>
 			</table>
 		</div>
 

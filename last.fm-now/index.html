@@ -1,51 +1,158 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width" />
 
-	<link rel="stylesheet" href="assets/styles/index.css" media="screen">
+		<link rel="stylesheet" href="../dist/styles.css" media="screen" />
 
-	<title>Last.fm now</title>
-	<meta name="description" content="Shows currently playing track.">
+		<title>Last.fm now</title>
+		<meta name="description" content="Shows currently playing track." />
 
-	<link rel="icon" type="image/png" href="assets/images/favicon.png" sizes="16x16">
-	<link rel="icon" type="image/png" href="assets/images/favicon-32x32.png" sizes="32x32">
+		<link
+			rel="icon"
+			type="image/png"
+			href="assets/images/favicon.png"
+			sizes="16x16"
+		/>
+		<link
+			rel="icon"
+			type="image/png"
+			href="assets/images/favicon-32x32.png"
+			sizes="32x32"
+		/>
 
-</head>
+		<style>
+			@keyframes loading-intro {
+				0% {
+					opacity: 0;
+				}
+				100% {
+					opacity: 1;
+				}
+			}
+			@keyframes loading-pulse {
+				0% {
+					transform: scale(1);
+				}
+				50% {
+					transform: scale(0.5);
+				}
+			}
 
-<body>
+			.loading::before {
+				position: fixed;
+				left: 50%;
+				top: 50%;
+				border: 0.3em solid white;
+				width: 10vw;
+				height: 10vw;
+				margin: -5vw 0 0 -5vw;
+				border-radius: 50%;
+				animation: loading-pulse 2s ease-in-out infinite;
+				content: '';
+				box-sizing: border-box;
+			}
+		</style>
+	</head>
 
-	<section id="selector" class="selector view-hidden">
-		<div class="selector-loading">
-			<div class="loading"></div>
-		</div>
-		<h1 class="selector-title">Last.fm now playing</h1>
-		<form id="selector-form">
-			<input id="selector-input" type="text" class="selector-input" placeholder="Username">
-			<button class="selector-submit">Submit</button>
-		</form>
-		<a class="selector-about" href="https://github.com/Onset/Last.fm-now" target="_blank">
-			About Last.fm now
-		</a>
-	</section>
+	<body
+		class="bg-black text-white"
+		style="font-family: Verdana, Geneva, sans-serif"
+	>
+		<section
+			id="selector"
+			class="selector view-hidden fixed inset-0 bg-black z-10 p-4 text-center flex flex-col justify-center items-center transition-opacity transition-visibility duration-500"
+			style="visibility: hidden; opacity: 0"
+		>
+			<div class="selector-loading opacity-50">
+				<div
+					class="loading"
+					style="animation: loading-intro 4s 2s backwards"
+				></div>
+			</div>
+			<h1 class="selector-title text-3xl">Last.fm now playing</h1>
+			<form id="selector-form" class="mt-4">
+				<input
+					id="selector-input"
+					type="text"
+					class="selector-input block bg-black text-white border border-white px-2 py-1"
+					placeholder="Username"
+				/>
+				<button
+					class="selector-submit mt-2 bg-transparent border-2 border-white px-4 py-1 cursor-pointer"
+				>
+					Submit
+				</button>
+			</form>
+			<a
+				class="selector-about mt-12 text-xs text-brand-green hover:underline"
+				href="https://github.com/Onset/Last.fm-now"
+				target="_blank"
+			>
+				About Last.fm now
+			</a>
+		</section>
 
-	<section class="loading" id="loading"></section>
+		<section
+			class="loading fixed inset-0"
+			id="loading"
+			style="
+				animation: loading-intro 4s 2s backwards;
+				transition:
+					opacity 0.3s,
+					visibility 0.3s;
+			"
+		></section>
 
-	<section class="track" id="track">
-		<div class="track-item">
-			<div class="track-under"></div>
-			<div class="track-in">
-				<div class="track-cover"></div>
-				<div class="track-info">
-					<div class="track-title"></div>
-					<div class="track-artist"></div>
-					<div class="track-album"></div>
+		<section class="track fixed inset-0" id="track">
+			<div
+				class="track-item absolute inset-0 overflow-hidden flex justify-center items-center transition-opacity transition-visibility duration-500"
+				style="
+					transition:
+						opacity 0.5s,
+						visibility 0.5s;
+				"
+			>
+				<div
+					class="track-under absolute"
+					style="
+						top: -30px;
+						left: -30px;
+						right: -30px;
+						bottom: -30px;
+						opacity: 0.85;
+						background-position: center;
+						background-repeat: no-repeat;
+						background-size: cover;
+						-webkit-filter: grayscale(100%) blur(1vw);
+						filter: grayscale(100%) blur(1vw);
+					"
+				></div>
+				<div
+					class="track-in relative inline-block p-4 max-w-full flex flex-col md:flex-row"
+					style="box-sizing: border-box"
+				>
+					<div
+						class="track-cover mx-auto w-80 max-w-full md:mr-5 md:float-left"
+						style="
+							background-position: center;
+							background-repeat: no-repeat;
+							background-size: cover;
+						"
+					></div>
+					<div
+						class="track-info md:max-w-md md:min-w-80"
+						style="text-shadow: 0 0 30px rgba(0, 0, 0, 0.5)"
+					>
+						<div class="track-title mt-1 text-4xl md:-mt-1"></div>
+						<div class="track-artist text-2xl py-2"></div>
+						<div class="track-album"></div>
+					</div>
 				</div>
 			</div>
-		</div>
-	</section>
+		</section>
 
-	<script src="assets/scripts/index.js" defer></script>
-</body>
+		<script src="assets/scripts/index.js" defer></script>
+	</body>
 </html>

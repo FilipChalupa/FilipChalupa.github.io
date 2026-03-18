@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="cs">
 	<head>
 		<meta charset="UTF-8" />
@@ -6,67 +6,31 @@
 		<title>Filip Chalupa</title>
 		<link rel="icon" type="image/png" href="assets/profile.jpg" />
 		<meta name="color-scheme" content="light dark" />
-		<link rel="stylesheet" href="assets/style.css" />
-		<style>
-			body {
-				text-align: center;
-				margin: 1em;
-				min-height: calc(100vh - 2em);
-				display: flex;
-				align-items: center;
-				flex-direction: column;
-			}
-			@media (prefers-color-scheme: dark) {
-				body {
-					color: white;
-					background-color: #0e0e0e;
-				}
-			}
-			body::before {
-				content: '';
-				flex-grow: 1;
-			}
-			h1 {
-				margin: 30px 0 10px;
-				font-size: 40px;
-			}
-			img {
-				border-radius: 50%;
-				width: 300px;
-				height: 300px;
-				max-width: 80vw;
-				max-height: 80vw;
-				object-fit: cover;
-			}
-			footer {
-				flex-grow: 2;
-				margin-top: 1em;
-				display: flex;
-				justify-content: flex-end;
-				align-items: flex-end;
-				align-content: flex-end;
-				flex-wrap: wrap;
-				width: 100%;
-				margin-right: -0.5em;
-			}
-			footer a {
-				padding: 0 0.5em;
-			}
-		</style>
+		<link rel="stylesheet" href="dist/styles.css" />
 	</head>
-	<body>
+	<body
+		class="text-center m-4 min-h-[calc(100vh-2rem)] flex flex-col items-center dark:text-white dark:bg-dark-bg"
+	>
+		<div class="flex-grow"></div>
 		<img
 			src="assets/profile.jpg"
 			alt="Profilová fotka"
 			width="720"
 			height="478"
+			class="rounded-full w-80 h-80 max-w-[80vw] max-h-[80vw] object-cover"
 		/>
-		<h1>Filip Chalupa</h1>
-		<a href="mailto:chalupa.filip@gmail.com">chalupa.filip@gmail.com</a>
-		<footer>
-			<a href="identity/">Identita</a> |
-			<a href="projects/">Vybrané projekty</a> |
-			<a href="transfer">Bankovní spojení</a>
+		<h1 class="my-7 mt-[30px] mb-[10px] text-4xl">Filip Chalupa</h1>
+		<a href="mailto:chalupa.filip@gmail.com" class="text-brand-green"
+			>chalupa.filip@gmail.com</a
+		>
+		<footer
+			class="flex-grow-[2] mt-4 flex justify-end items-end content-end flex-wrap w-full -mr-2 flex-grow-[2] mt-2"
+		>
+			<a href="identity/" class="text-brand-green px-2">Identita</a>
+			<span class="px-2">|</span>
+			<a href="projects/" class="text-brand-green px-2">Vybrané projekty</a>
+			<span class="px-2">|</span>
+			<a href="transfer" class="text-brand-green px-2">Bankovní spojení</a>
 		</footer>
 	</body>
 </html>

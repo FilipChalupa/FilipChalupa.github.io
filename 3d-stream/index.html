@@ -1,34 +1,27 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>3D print</title>
-    <link rel="icon" href="icon.png" type="image/png" sizes="64x64" />
-    <meta name="color-scheme" content="light dark">
-    <meta
-      name="description"
-      content="Stream právě probíhajícího tisku v manGowebu"
-    />
-    <meta name="theme-color" content="#000000" />
-    <style>
-      body {
-        background-color: #000000;
-      }
-      img {
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        width: 100vh;
-        height: 100vw;
-        object-fit: contain;
-        transform: translate(-50%, -50%) rotate(90deg);
-      }
-    </style>
-    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
-  </head>
-  <body>
-    <img src="http://10.10.0.28/webcam/?action=stream" />
-  </body>
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<meta name="viewport" content="width=device-width,initial-scale=1" />
+		<title>3D print</title>
+		<link rel="icon" href="icon.png" type="image/png" sizes="64x64" />
+		<meta name="color-scheme" content="light dark" />
+		<meta
+			name="description"
+			content="Stream právě probíhajícího tisku v manGowebu"
+		/>
+		<meta name="theme-color" content="#000000" />
+		<link rel="stylesheet" href="../dist/styles.css" />
+		<meta
+			http-equiv="Content-Security-Policy"
+			content="upgrade-insecure-requests"
+		/>
+	</head>
+	<body class="bg-black">
+		<img
+			src="http://10.10.0.28/webcam/?action=stream"
+			class="fixed top-1/2 left-1/2 w-screen h-screen object-contain -translate-x-1/2 -translate-y-1/2 rotate-90"
+		/>
+	</body>
 </html>
