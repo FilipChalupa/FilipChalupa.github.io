@@ -4,10 +4,13 @@
 	"description": "Personal portfolio website with Tailwind CSS",
 	"scripts": {
 		"build": "tailwindcss -i ./input.css -o dist/styles.css",
-		"dev": "tailwindcss -i ./input.css -o dist/styles.css --watch"
+		"dev": "concurrently \"tailwindcss -i ./input.css -o dist/styles.css --watch\" \"http-server -p 8000 -c-1\"",
+		"start": "http-server -p 8000"
 	},
 	"devDependencies": {
 		"tailwindcss": "^3.4.1",
-		"autoprefixer": "^10.4.17"
+		"autoprefixer": "^10.4.17",
+		"concurrently": "^8.2.2",
+		"http-server": "^14.1.1"
 	}
 }
