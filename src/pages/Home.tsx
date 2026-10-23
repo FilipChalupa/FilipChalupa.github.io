@@ -21,10 +21,10 @@ export const Home = () => (
 		<a href="mailto:chalupa.filip@gmail.com" className="text-brand-green">
 			chalupa.filip@gmail.com
 		</a>
-		<footer className="grow-[2] mt-4 flex justify-end items-end flex-wrap w-full">
+		<footer className="grow-[2] mt-4 flex justify-end items-end content-end flex-wrap gap-x-4 sm:gap-x-0 w-full">
 			{links.map(({ to, label }, index) => (
 				<Fragment key={to}>
-					{index > 0 && <span className="px-2">|</span>}
+					{index > 0 && <span className="hidden sm:inline px-2">|</span>}
 					<Link to={to} className="text-brand-green px-2 hover:underline">
 						{label}
 					</Link>
