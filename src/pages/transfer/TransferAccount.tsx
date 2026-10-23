@@ -29,7 +29,7 @@ export const TransferAccount = ({ account }: { account: Account }) => (
 			</section>
 		)}
 		{account.qr && (
-			<figure className="my-4 text-center">
+			<figure className="my-4 flex justify-center">
 				<QrCode value={account.qr.value} label={account.qr.label} />
 			</figure>
 		)}
