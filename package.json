@@ -1,16 +1,28 @@
 {
-	"name": "filipchalupa-portfolio",
+	"name": "filipchalupa-cz",
+	"private": true,
 	"version": "1.0.0",
-	"description": "Personal portfolio website with Tailwind CSS",
+	"description": "Personal website filipchalupa.cz",
+	"type": "module",
 	"scripts": {
-		"build": "tailwindcss -i ./input.css -o dist/styles.css",
-		"dev": "concurrently \"tailwindcss -i ./input.css -o dist/styles.css --watch\" \"http-server -p 8000 -c-1\"",
-		"start": "http-server -p 8000"
+		"dev": "vite",
+		"build": "tsc --noEmit && vite build && vite build --ssr src/entry-server.tsx --outDir dist-ssr && node scripts/prerender.js",
+		"preview": "vite preview"
+	},
+	"dependencies": {
+		"qrcode-generator": "^2.0.4",
+		"react": "^19.3.1",
+		"react-dom": "^19.3.1",
+		"react-router": "^7.18.4"
 	},
 	"devDependencies": {
-		"tailwindcss": "^3.4.1",
-		"autoprefixer": "^10.4.17",
-		"concurrently": "^8.2.2",
-		"http-server": "^14.1.1"
+		"@tailwindcss/vite": "^4.3.3",
+		"@types/node": "^26.6.5",
+		"@types/react": "^19.3.0",
+		"@types/react-dom": "^19.3.0",
+		"@vitejs/plugin-react": "^6.1.2",
+		"tailwindcss": "^4.3.3",
+		"typescript": "^7.0.2",
+		"vite": "^8.3.5"
 	}
 }

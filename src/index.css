@@ -1,0 +1,29 @@
+@import 'tailwindcss' source('.');
+
+@theme {
+	--font-sans: Arial, Helvetica, sans-serif;
+	--color-brand-green: #06a004;
+	--color-dark-bg: #0e0e0e;
+}
+
+@layer base {
+	body {
+		@apply font-sans dark:bg-dark-bg dark:text-white;
+	}
+}
+
+@theme {
+	--animate-loading-intro: loading-intro 4s 2s backwards;
+	--animate-loading-pulse: loading-pulse 2s ease-in-out infinite;
+
+	@keyframes loading-intro {
+		from {
+			opacity: 0;
+		}
+	}
+	@keyframes loading-pulse {
+		50% {
+			transform: scale(0.5);
+		}
+	}
+}
