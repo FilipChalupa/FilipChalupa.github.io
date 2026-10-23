@@ -128,8 +128,9 @@ export const QrPayment = ({ iban, color }: { iban: string; color: string }) => {
 					</span>
 				</div>
 			</div>
-			<figure className="justify-self-center text-center">
-				<QrCode value={toSpayd(iban, values)} label="QR platba" />
+			{/* Pushed down by the label height and sized to span the three inputs */}
+			<figure className="justify-self-center text-center sm:mt-6">
+				<QrCode value={toSpayd(iban, values)} label="QR platba" size={198} />
 				<figcaption className="text-sm mt-1">QR Platba</figcaption>
 			</figure>
 		</form>
