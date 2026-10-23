@@ -30,7 +30,7 @@ const profiles = [
 
 export const Identity = () => (
 	<PageLayout>
-		<h1 className="text-xl font-bold my-4">Identita</h1>
+		<h1 className="text-2xl font-bold my-4">Identita</h1>
 		<ul className="list-disc pl-5">
 			{profiles.map(({ label, href }) => (
 				<li key={href}>

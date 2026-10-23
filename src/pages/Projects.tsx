@@ -173,6 +173,7 @@ const sections: { title: string; projects: Project[] }[] = [
 
 export const Projects = () => (
 	<PageLayout>
+		<h1 className="text-2xl font-bold my-4">Vybrané projekty</h1>
 		{sections.map(({ title, projects }) => (
 			<section key={title} className="my-4">
 				<h2 className="text-xl font-bold my-4">{title}</h2>
