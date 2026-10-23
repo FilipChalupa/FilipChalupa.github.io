@@ -15,6 +15,84 @@
 			Filip Chalupa - bankovní spojení
 		</h1>
 
+		<div class="target" id="qr-platba">
+			<h2 class="mt-7 mb-4">
+				<a href="#qr-platba" class="text-brand-green hover:underline"
+					>QR platba</a
+				>
+			</h2>
+			<form
+				id="qr-form"
+				class="grid gap-4 sm:grid-cols-[1fr_auto] items-start my-4 dark:text-gray-200"
+			>
+				<div class="grid gap-3">
+					<label class="block">
+						<span class="block text-sm mb-1">Účet</span>
+						<select
+							name="ucet"
+							class="w-full border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 py-2 px-2"
+						>
+							<option value="ceska-sporitelna">
+								Česká spořitelna – 2211262093/0800
+							</option>
+							<option value="csob">ČSOB – 298930736/0300</option>
+							<option value="moneta">Moneta – 265611341/0600</option>
+						</select>
+					</label>
+					<label class="block">
+						<span class="block text-sm mb-1">Částka (Kč)</span>
+						<input
+							name="castka"
+							inputmode="decimal"
+							autocomplete="off"
+							placeholder="nevyplněno"
+							class="w-full border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 py-2 px-2"
+						/>
+					</label>
+					<label class="block">
+						<span class="block text-sm mb-1">Variabilní symbol</span>
+						<input
+							name="vs"
+							inputmode="numeric"
+							maxlength="10"
+							autocomplete="off"
+							class="w-full border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 py-2 px-2"
+						/>
+					</label>
+					<label class="block">
+						<span class="block text-sm mb-1">Zpráva pro příjemce</span>
+						<input
+							name="zprava"
+							maxlength="60"
+							autocomplete="off"
+							class="w-full border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 py-2 px-2"
+						/>
+					</label>
+					<div class="flex items-center gap-3">
+						<button
+							type="button"
+							id="qr-copy"
+							class="py-2 px-3 bg-bank-ceska text-white hover:opacity-90"
+						>
+							Kopírovat odkaz
+						</button>
+						<span id="qr-status" class="text-sm" aria-live="polite"></span>
+					</div>
+				</div>
+				<figure class="justify-self-center text-center">
+					<img
+						id="qr-image"
+						alt="QR platba"
+						width="200"
+						height="200"
+						class="bg-white"
+						style="image-rendering: pixelated"
+					/>
+					<figcaption class="text-sm mt-1">QR Platba</figcaption>
+				</figure>
+			</form>
+		</div>
+
 		<div class="target" id="ceska-sporitelna">
 			<h2 class="mt-7 mb-4">
 				<a href="#ceska-sporitelna" class="text-brand-green hover:underline"
@@ -392,10 +470,100 @@
 			</table>
 		</div>
 
+		<script src="qrcode.js"></script>
 		<script>
-			document.addEventListener('click', () => {
+			document.addEventListener('click', (event) => {
+				if (event.target.closest('#qr-form')) {
+					return
+				}
 				location.hash = ''
 			})
+
+			// QR Platba (SPAYD), parametry jsou v URL, aby šel odkaz sdílet
+			const accounts = {
+				'ceska-sporitelna': 'CZ2108000000002211262093',
+				csob: 'CZ0403000000000298930736',
+				moneta: 'CZ4806000000000265611341',
+			}
+			const form = document.getElementById('qr-form')
+			const image = document.getElementById('qr-image')
+			const status = document.getElementById('qr-status')
+
+			const parseAmount = (value) => {
+				const amount = Number(value.replace(/\s/g, '').replace(',', '.'))
+				return value.trim() && amount > 0 && amount < 1e7 ? amount : null
+			}
+			const clean = (value) => value.replace(/\*/g, '').trim()
+
+			const toSpayd = ({ ucet, castka, vs, zprava }) => {
+				const parts = ['SPD', '1.0', `ACC:${accounts[ucet]}`]
+				const amount = parseAmount(castka)
+				if (amount) {
+					parts.push(`AM:${amount.toFixed(2)}`)
+				}
+				parts.push('CC:CZK', 'RN:Filip Chalupa')
+				if (vs) {
+					parts.push(`X-VS:${vs}`)
+				}
+				if (zprava) {
+					parts.push(`MSG:${zprava}`)
+				}
+				return parts.join('*')
+			}
+
+			const readForm = () => ({
+				ucet: form.ucet.value,
+				castka: form.castka.value.trim(),
+				vs: form.vs.value.replace(/\D/g, '').slice(0, 10),
+				zprava: clean(form.zprava.value).slice(0, 60),
+			})
+
+			const shareUrl = (values) => {
+				const params = new URLSearchParams()
+				Object.entries(values).forEach(([key, value]) => {
+					if (value && !(key === 'ucet' && value === 'ceska-sporitelna')) {
+						params.set(key, value)
+					}
+				})
+				const query = params.toString()
+				return `${location.pathname}${query ? `?${query}` : ''}#qr-platba`
+			}
+
+			const drawQr = (values) => {
+				const qr = qrcode(0, 'M')
+				qr.addData(toSpayd(values), 'Byte')
+				qr.make()
+				image.src = qr.createDataURL(6, 4)
+			}
+
+			const render = () => {
+				const values = readForm()
+				drawQr(values)
+				history.replaceState(null, '', shareUrl(values))
+				status.textContent = ''
+			}
+
+			const params = new URLSearchParams(location.search)
+			if (params.get('ucet') in accounts) {
+				form.ucet.value = params.get('ucet')
+			}
+			;['castka', 'vs', 'zprava'].forEach((name) => {
+				form[name].value = params.get(name) ?? ''
+			})
+
+			qrcode.stringToBytes = qrcode.stringToBytesFuncs['UTF-8']
+			form.addEventListener('input', render)
+			form.addEventListener('submit', (event) => event.preventDefault())
+			document.getElementById('qr-copy').addEventListener('click', async () => {
+				const url = new URL(shareUrl(readForm()), location.href).href
+				try {
+					await navigator.clipboard.writeText(url)
+					status.textContent = 'Zkopírováno'
+				} catch {
+					status.textContent = url
+				}
+			})
+			drawQr(readForm())
 		</script>
 	</body>
 </html>
