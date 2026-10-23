@@ -149,13 +149,13 @@ const sections: { title: string; projects: Project[] }[] = [
 				extras: [github('where-is')],
 			},
 			{
+				// The web app is no longer running
 				links: [
 					{
 						label: 'Virtual Thermal Printer',
-						href: 'https://virtual-thermal-printer.deno.dev/',
+						href: github('virtual-thermal-printer').href,
 					},
 				],
-				extras: [github('virtual-thermal-printer')],
 			},
 			{
 				links: [{ label: 'Last.fm now', href: '/last.fm-now/#Ofecka_' }],
