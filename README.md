@@ -14,5 +14,10 @@ Every page from `src/routes.tsx` is prerendered to its own `index.html` by
 (older standalone apps, `.well-known`, `CNAME`) are copied to the build as
 they are.
 
-Pushes to `main` are deployed to GitHub Pages by
-`.github/workflows/deploy.yml`.
+Pushes to the `deploy` branch are deployed to GitHub Pages by
+`.github/workflows/deploy.yml`, pushes to `main` and pull requests are only
+built. To publish `main`:
+
+```sh
+git push origin main:deploy
+```

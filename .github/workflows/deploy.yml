@@ -2,7 +2,7 @@ name: Build and deploy
 
 on:
   push:
-    branches: [main]
+    branches: [main, deploy]
   pull_request:
   workflow_dispatch:
 
@@ -25,14 +25,15 @@ jobs:
       - run: npm run build
 
       - uses: actions/upload-pages-artifact@v5
-        if: github.event_name != 'pull_request'
+        if: github.ref == 'refs/heads/deploy'
         with:
           path: dist
           # .well-known (Lightning address, Android app links)
           include-hidden-files: true
 
+  # Only the deploy branch is published, main and pull requests just build
   deploy:
-    if: github.event_name != 'pull_request'
+    if: github.ref == 'refs/heads/deploy'
     needs: build
     runs-on: ubuntu-latest
     concurrency:
