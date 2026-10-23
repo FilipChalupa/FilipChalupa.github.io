@@ -1,8 +1,14 @@
 import type { ReactNode } from 'react'
 import { Link } from 'react-router'
 
-export const PageLayout = ({ children }: { children: ReactNode }) => (
-	<div className="max-w-2xl mx-auto px-4 pb-8">
+export const PageLayout = ({
+	children,
+	wide = false,
+}: {
+	children: ReactNode
+	wide?: boolean
+}) => (
+	<div className={`${wide ? 'max-w-5xl' : 'max-w-2xl'} mx-auto px-4 pb-8`}>
 		<header className="my-4">
 			<Link
 				to="/"
