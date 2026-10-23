@@ -1,72 +1,13 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="cs">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Filip Chalupa</title>
-		<link rel="icon" type="image/png" href="assets/profile.jpg" />
 		<meta name="color-scheme" content="light dark" />
-		<link rel="stylesheet" href="assets/style.css" />
-		<style>
-			body {
-				text-align: center;
-				margin: 1em;
-				min-height: calc(100vh - 2em);
-				display: flex;
-				align-items: center;
-				flex-direction: column;
-			}
-			@media (prefers-color-scheme: dark) {
-				body {
-					color: white;
-					background-color: #0e0e0e;
-				}
-			}
-			body::before {
-				content: '';
-				flex-grow: 1;
-			}
-			h1 {
-				margin: 30px 0 10px;
-				font-size: 40px;
-			}
-			img {
-				border-radius: 50%;
-				width: 300px;
-				height: 300px;
-				max-width: 80vw;
-				max-height: 80vw;
-				object-fit: cover;
-			}
-			footer {
-				flex-grow: 2;
-				margin-top: 1em;
-				display: flex;
-				justify-content: flex-end;
-				align-items: flex-end;
-				align-content: flex-end;
-				flex-wrap: wrap;
-				width: 100%;
-				margin-right: -0.5em;
-			}
-			footer a {
-				padding: 0 0.5em;
-			}
-		</style>
+		<!--app-head-->
 	</head>
 	<body>
-		<img
-			src="assets/profile.jpg"
-			alt="Profilová fotka"
-			width="720"
-			height="478"
-		/>
-		<h1>Filip Chalupa</h1>
-		<a href="mailto:chalupa.filip@gmail.com">chalupa.filip@gmail.com</a>
-		<footer>
-			<a href="identity/">Identita</a> |
-			<a href="projects/">Vybrané projekty</a> |
-			<a href="transfer">Bankovní spojení</a>
-		</footer>
+		<div id="root"><!--app-html--></div>
+		<script type="module" src="/src/main.tsx"></script>
 	</body>
 </html>
